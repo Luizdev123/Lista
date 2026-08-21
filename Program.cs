@@ -1,26 +1,90 @@
-﻿using System;
-using System.Collections.Generic;
+﻿List<string> perguntas = new List<string>();
 
-class Program
+int sim = 0;
+
+Console.WriteLine("Responda as perguntas para cooperar com a solução do crime (Digite s/n)");
+
+Console.WriteLine("Você telefonou para a vítima?");
+string resposta1 = Console.ReadLine().Trim().ToLower();
+
+if (resposta1 == "s")
 {
-    static void Main()
-    {
-        List<int> L1 = new List<int> { 5, 2, 8, 1 };
-        List<int> L2 = new List<int> { 7, 3, 9, 4 };
-        List<int> L3 = new List<int>();
-        L3.AddRange(L1);
-        L3.AddRange(L2);
-        L3.Sort();
-        Console.WriteLine("L3 em ordem crescente:");
-        foreach (int numero in L3)
-        {
-            Console.Write(numero + " ");
-        }
-        L3.Reverse();
-        Console.WriteLine("\n\nL3 em ordem decrescente:");
-        foreach (int numero in L3)
-        {
-            Console.Write(numero + " ");
-        }
-    }
+    sim++;
+    perguntas.Add(resposta1);
 }
+else if (resposta1 == "n")
+{
+    perguntas.Add(resposta1);
+}
+
+Console.WriteLine("Você esteve no local do crime?");
+string resposta2 = Console.ReadLine().Trim().ToLower();
+
+if (resposta2 == "s")
+{
+    sim++;
+    perguntas.Add(resposta2);
+}
+
+else if (resposta2 == "n")
+{
+    perguntas.Add(resposta2);
+}
+
+Console.WriteLine("Mora perto da vítima?");
+string resposta3 = Console.ReadLine().Trim().ToLower();
+
+if (resposta3 == "s")
+{
+    sim++;
+    perguntas.Add(resposta3);
+}
+else if (resposta3 == "n")
+{
+    perguntas.Add(resposta3);
+}
+
+Console.WriteLine("Você devia a vítima?");
+string resposta4 = Console.ReadLine().Trim().ToLower();
+
+if (resposta4 == "s")
+{
+    sim++;
+    perguntas.Add(resposta4);
+}
+else if (resposta4 == "n")
+{
+    perguntas.Add(resposta4);
+}
+
+Console.WriteLine("Você já trabalhou com a vítima?");
+string pergunta5 = Console.ReadLine().Trim().ToLower();
+
+if (pergunta5 == "s")
+{
+    sim++;
+    perguntas.Add(pergunta5);
+}
+else if (pergunta5 == "n")
+{
+    perguntas.Add(pergunta5);
+}
+
+if (sim < 2)
+{
+    Console.WriteLine("Você é inocente!!!");
+}
+else if (sim == 2)
+{
+    Console.WriteLine("Você é suspeito!!!");
+}
+else if (sim >= 3 && sim <= 4)
+{
+    Console.WriteLine("Você é cúmplice!!!");
+}
+else if (sim == 5)
+{
+    Console.WriteLine("Você é o assasino!!!");
+}
+
+Console.WriteLine("Todas as perguntas: " + string.Join(",", perguntas));
