@@ -1,0 +1,37 @@
+﻿using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main()
+    {
+        List<string> palavras = new List<string>();
+        string palavra = "";
+
+        while (palavra != "0")
+        {
+            Console.Write("Digite uma palavra: ");
+            palavra = Console.ReadLine();
+
+            if (palavra != "0")
+            {
+                palavras.Add(palavra);
+            }
+        }
+
+        Console.Write("Qual palavra deseja contar? ");
+        string procurar = Console.ReadLine();
+
+        int contador = 0;
+
+        for (int i = 0; i < palavras.Count; i++)
+        {
+            if (palavras[i] == procurar)
+            {
+                contador = contador + 1;
+            }
+        }
+
+        Console.WriteLine("A palavra aparece " + contador + " vezes.");
+    }
+}
